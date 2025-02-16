@@ -1,0 +1,46 @@
+
+services:
+  app:
+    container_name: vl_app
+    build:
+      context: ./docker/php
+    image: "laravel-container"
+    restart: unless-stopped
+    ports:
+      - 9900:80 # Laravel
+    volumes:
+      - ./src:/var/www/html
+      - ./docker/apache/default.conf:/etc/apache2/sites-enabled/000-default.conf
+      - ./docker/apache/ports.conf:/etc/apache2/ports.conf
+
+  db:
+    image: ankane/pgvector:latest  # ✅ Use PostgreSQL with pgvector
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: laravel
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./docker/pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  embedding:
+    container_name: vl_embedding
+    build:
+      context: ./docker/python
+    restart: unless-stopped
+    ports:
+      - "5001:5001"  # Expose the embedding service API
+
+  pgadmin: 
+    image: dpage/pgadmin4
+    container_name: vl_pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com  # Set your admin email
+      PGADMIN_DEFAULT_PASSWORD: admin  # Set your password
+    ports:
+      - "5050:80"  # Expose pgAdmin on port 5050
+    depends_on:
+      - db  # Ensure the database is ready before starting pgAdmin
