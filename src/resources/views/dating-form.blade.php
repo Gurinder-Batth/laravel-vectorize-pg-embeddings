@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container bg-gray-100">
+<div class="container mt-3">
     <form action="{{ route('dating.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         
@@ -49,7 +49,7 @@
         <img id="imagePreview" class="mt-3 w-32 h-32 object-cover rounded hidden">
     
         <!-- Submit Button -->
-        <button type="submit" class="w-full bg-blue-500 text-white py-2 mt-6 rounded hover:bg-blue-600">Submit</button>
+        <button type="submit" class="w-full bg-pink-500 text-white py-2 mt-6 rounded hover:bg-pink-600">Submit</button>
     </form>
 </div>
 

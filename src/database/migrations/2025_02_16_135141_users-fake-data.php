@@ -45,12 +45,12 @@ return new class extends Migration
         foreach (range(1, count($bios)) as $index) {
             $gender = $faker->randomElement(['male', 'female']);
             DB::table('users')->insert([
-                'name' => $faker->name(),
+                'name' => $faker->name($gender),
                 'age' => $faker->numberBetween(18, 60),
                 'gender' => $gender,
                 'interests' => json_encode($faker->randomElements($interestsList, rand(3, 5))),
                 'bio' => $bios[$index - 1],
-                'photo' => 'https://avatar.iran.liara.run/public/' . $gender == "male" ? rand(2, 40) : rand(60, 80),
+                'photo' => 'https://avatar.iran.liara.run/public/' . ($gender == "male" ? rand(2, 40) : rand(60, 80)),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

@@ -8,8 +8,8 @@
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="p-6 rounded-xl shadow-lg  bg-white">
-        <h2 class="text-2xl font-bold text-center mb-6">Dating Form</h2>
 
+        @include('logo')
         <!-- Display errors -->
         @if ($errors->any())
             <div class="bg-red-100 text-red-700 p-4 rounded mb-4">

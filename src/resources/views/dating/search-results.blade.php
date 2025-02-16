@@ -5,12 +5,12 @@
     <div class="flex gap-6">
         
         {{-- Left Side - Static Search Form --}}
-        <div class="w-1/3 bg-white p-6 rounded-lg shadow-md border border-pink-300 h-fit">
+        <div class="min-w-[450px] w-1/3 bg-white p-6 rounded-lg shadow-md border border-pink-300 h-fit">
             @include('dating.search-form')
         </div>
 
         {{-- Right Side - Scrollable Results --}}
-        <div class="w-2/3 h-[600px] overflow-y-auto bg-pink-50 p-6 rounded-lg shadow-md border border-pink-300">
+        <div class="min-w-[900px] w-3/1 h-[600px] overflow-y-auto bg-pink-50 p-6 rounded-lg shadow-md border border-pink-300">
             <h2 class="text-2xl font-semibold text-pink-600 mb-6 text-center">Search Results</h2>
 
             @if($results->isEmpty())
