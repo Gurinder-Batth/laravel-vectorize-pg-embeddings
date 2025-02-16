@@ -28,7 +28,7 @@
                                     <p class="text-gray-600">{{ ucfirst($user->gender) }} | Age: {{ $user->age }}</p>
                                 </div>
                             </div>
-                            <p class="text-gray-700"><b>Distance Match:</b> {{ $user->similarity }}</p>
+                            <p class="text-gray-700"><b>Close Distance:</b> {{ $user->similarity }}</p>
                             <p class="text-gray-700"><b>Bio:</b> {{ $user->bio }}</p>
                             <p class="text-gray-700"><b>Interests:</b> {{ implode(', ', $user->interests ?? []) }}</p>
 

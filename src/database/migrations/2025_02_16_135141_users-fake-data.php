@@ -46,7 +46,7 @@ return new class extends Migration
             $gender = $faker->randomElement(['male', 'female']);
             DB::table('users')->insert([
                 'name' => $faker->name($gender),
-                'age' => $faker->numberBetween(18, 60),
+                'age' => $faker->numberBetween(18, 30),
                 'gender' => $gender,
                 'interests' => json_encode($faker->randomElements($interestsList, rand(3, 5))),
                 'bio' => $bios[$index - 1],
