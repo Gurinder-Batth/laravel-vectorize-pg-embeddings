@@ -69,14 +69,5 @@ class UserController extends Controller
     }
     
 
-    // Function to compute cosine similarity
-    private function cosineSimilarity(array $vectorA, array $vectorB) {
-        $dotProduct = array_sum(array_map(fn($a, $b) => $a * $b, $vectorA, $vectorB));
-        $magnitudeA = sqrt(array_sum(array_map(fn($a) => $a ** 2, $vectorA)));
-        $magnitudeB = sqrt(array_sum(array_map(fn($b) => $b ** 2, $vectorB)));
-
-        return $magnitudeA * $magnitudeB == 0 ? 0 : $dotProduct / ($magnitudeA * $magnitudeB);
-    }
-
 
 }

@@ -9,7 +9,17 @@
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="p-6 rounded-xl shadow-lg  bg-white">
 
-        @include('logo')
+        <div class="flex items-center justify-between p-4 ">
+            {{-- left --}}
+            <div>
+                @include('logo')
+            </div>
+        
+            {{-- right --}}
+            <h1 class="text-xl font-semibold text-gray-800">Discover Your Perfect Date Match ❤️</h1>
+        </div>
+        
+
         <!-- Display errors -->
         @if ($errors->any())
             <div class="bg-red-100 text-red-700 p-4 rounded mb-4">
